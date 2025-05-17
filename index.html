@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Quantum Quote Nexus - A futuristic, multi-modal quote experience" />
+    <meta name="theme-color" content="#121212" />
+    <title>Quantum Quote Nexus</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzAwZjBmZiIgZD0iTTEyIDJhMTAgMTAgMCAxIDAgMCAyMCAxMCAxMCAwIDAgMCAwLTIwem0wIDE4YTggOCAwIDEgMSAwLTE2IDggOCAwIDAgMSAwIDE2eiIvPjwvc3ZnPg==" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Inline critical CSS -->
+    <style>
+      :root {
+        --neon-blue: #00f0ff;
+        --neon-magenta: #ff00ea;
+        --neon-green: #39ff14;
+        --dark-bg: #121212;
+        --darker-bg: #0a0a0a;
+      }
+      
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(to bottom right, var(--darker-bg), var(--dark-bg), var(--darker-bg));
+        color: white;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      
+      /* Loading spinner */
+      .loader {
+        border: 4px solid rgba(0, 240, 255, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid var(--neon-blue);
+        border-bottom: 4px solid var(--neon-magenta);
+        width: 60px;
+        height: 60px;
+        animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        margin: 20px auto;
+        filter: drop-shadow(0 0 15px var(--neon-blue));
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+      }
+      
+      @keyframes pulse {
+        0% { opacity: 0.6; }
+        50% { opacity: 1; }
+        100% { opacity: 0.6; }
+      }
+      
+      #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      
+      .initial-loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        background: radial-gradient(circle at center, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+      }
+      
+      .initial-loading h1 {
+        font-family: 'Orbitron', sans-serif;
+        color: var(--neon-blue);
+        text-shadow: 0 0 15px var(--neon-blue);
+        letter-spacing: 0.1em;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        animation: float 3s ease-in-out infinite, pulse 3s ease-in-out infinite;
+      }
+      
+      .initial-loading p {
+        color: var(--neon-magenta);
+        text-shadow: 0 0 10px var(--neon-magenta);
+        letter-spacing: 0.05em;
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        animation: pulse 3s ease-in-out infinite;
+      }
+      
+      /* Particle effect */
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+      
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Initial loading state with particles -->
+      <div class="initial-loading">
+        <!-- Basic particles -->
+        <div class="particles">
+          <div class="particle" style="top: 20%; left: 25%; width: 8px; height: 8px; background: #00f0ff; box-shadow: 0 0 20px #00f0ff; animation: float 15s linear infinite;"></div>
+          <div class="particle" style="top: 70%; left: 80%; width: 5px; height: 5px; background: #ff00ea; box-shadow: 0 0 15px #ff00ea; animation: float 25s linear infinite;"></div>
+          <div class="particle" style="top: 40%; left: 10%; width: 6px; height: 6px; background: #00f0ff; box-shadow: 0 0 15px #00f0ff; animation: float 20s linear infinite;"></div>
+          <div class="particle" style="top: 80%; left: 30%; width: 4px; height: 4px; background: #39ff14; box-shadow: 0 0 10px #39ff14; animation: float 18s linear infinite;"></div>
+          <div class="particle" style="top: 15%; left: 60%; width: 7px; height: 7px; background: #ff00ea; box-shadow: 0 0 18px #ff00ea; animation: float 22s linear infinite;"></div>
+        </div>
+        
+        <h1>QUANTUM QUOTE NEXUS</h1>
+        <div class="loader"></div>
+        <p>Initializing quantum wisdom...</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html> 
